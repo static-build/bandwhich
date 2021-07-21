@@ -2,9 +2,9 @@
 prepare(){
     if [ -d code ]; then
         echo "Already exists"
-        git subtree pull --prefix code https://github.com/imsnif/bandwhich.git master --squash
+        git subtree pull --prefix code https://github.com/imsnif/bandwhich.git main --squash
     else
-        git subtree add --prefix code https://github.com/imsnif/bandwhich.git master --squash
+        git subtree add --prefix code https://github.com/imsnif/bandwhich.git main --squash
     fi
 }
 
