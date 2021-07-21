@@ -9,7 +9,7 @@ prepare(){
     fi
 }
 
-appname=bandwidth
+appname=bandwhich
 
 # apt-get install mingw-w64
 # apt install gcc
@@ -22,9 +22,9 @@ build_win(){
     cp code/target/x86_64-pc-windows-gnu/release/${appname}.exe bin/${appname}.x64.exe
     (
         cd bin
-        # xrc 7z
-        # 7z a ${appname}.x64.exe.7z ${appname}.x64.exe
-        # rm ${appname}.x64.exe
+        xrc 7z
+        _7z a ${appname}.x64.exe.7z ${appname}.x64.exe
+        rm ${appname}.x64.exe
     )
 }
 
@@ -46,7 +46,7 @@ build_main(){
         cp "code/target/$rust_target/release/$exe" "bin/$target_name" && (
             cd bin && {
                 xrc 7z
-                7z a "$target_name.7z" "$target_name"
+                _7z a "$target_name.7z" "$target_name"
                 rm "$target_name"
             }
         )
