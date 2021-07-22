@@ -14,21 +14,6 @@ appname=bandwhich
 # apt-get install mingw-w64
 # apt install gcc
 
-build_win(){
-    (
-        cd code
-        cross build --target x86_64-pc-windows-gnu --release
-    )
-    cp code/target/x86_64-pc-windows-gnu/release/${appname}.exe bin/${appname}.x64.exe
-    (
-        cd bin
-        xrc 7z
-        _7z a -v1000k ${appname}.x64.exe.7z ${appname}.x64.exe
-        ls ${appname}.x64.exe.7z* | wc -l | tr -cd '0-9' > ${appname}.x64.exe.7z
-        rm ${appname}.x64.exe
-    )
-}
-
 build_main(){
 
     local rust_target=${1:?rust_target}
